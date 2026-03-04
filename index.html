@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte seu Bolo - Doce Mundo da Mary</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <i class='bx bxs-cake'></i>
+            <span>Doce Mundo da Mary</span>
+            <small>BOLOS E LEMBRANÇAS</small>
+        </header>
+
+        <h1><span>Monte seu Bolo</span> 🎂</h1>
+        <p class="subtitle">Personalize seu pedido e veja o valor na hora.</p>
+
+        <div class="total-card">
+            <small>Valor Estimado</small>
+            <strong id="total">R$ 0,00</strong>
+        </div>
+
+        <section class="card">
+            <h2><i class='bx bxs-cake'></i> Tamanho do Bolo</h2>
+            <div class="options" id="tamanhos">
+                <button data-kg="1.0" class="active">1 kg</button>
+                <button data-kg="1.5">1,5 kg</button>
+                <button data-kg="2.0">2 kg</button>
+                <button data-kg="2.5">2,5 kg</button>
+                <button data-kg="3.0">3 kg</button>
+                <button data-kg="3.5">3,5 kg</button>
+                <button data-kg="4.0">4 kg</button>
+                <button data-kg="4.5">4,5 kg</button>
+                <button data-kg="5.0">5 kg</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-heart'></i> Categoria de Recheio</h2>
+            <div class="options column" id="categorias">
+                <button data-cat="classicos" data-price="70">Clássicos <span>R$ 70/kg</span></button>
+                <button data-cat="especial1" data-price="75">Especiais 1 <span>R$ 75/kg</span></button>
+                <button data-cat="especial2" data-price="80">Especiais 2 <span>R$ 80/kg</span></button>
+                <button data-cat="premium" data-price="90">Premium <span>R$ 90/kg</span></button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-select-multiple'></i> Escolha os Recheios</h2>
+            <div class="options column" id="recheios">
+                <p class="hint">Selecione uma categoria acima primeiro 👆</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-cookie'></i> Massa do Bolo</h2>
+            <div class="options" id="secao-massa">
+                <button class="active">Massa Branca</button>
+                <button>Massa de Chocolate</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-spray-can'></i> Cobertura</h2>
+            <div class="options column">
+                <label class="radio-card">
+                    <input type="radio" name="cobertura" id="cob-chantininho" checked>
+                    <span>Chantininho (Incluso)</span>
+                </label>
+                <label class="radio-card">
+                    <input type="radio" name="cobertura" id="cob-especial">
+                    <span>Cobertura Especial (R$ 90,00/kg fixo)</span>
+                </label>
+            </div>
+
+            <div id="opcoes-especiais-container" style="display: none; margin-top: 15px; border-top: 1px dashed #ffb6c1; padding-top: 15px;">
+                <p class="hint" style="margin-bottom: 10px;">Escolha o sabor da Cobertura Especial:</p>
+                <div class="options column">
+                    <label class="radio-card sub-option">
+                        <input type="radio" name="sabor-especial" value="Mousse Branca"> <span>Mousse Branca</span>
+                    </label>
+                    <label class="radio-card sub-option">
+                        <input type="radio" name="sabor-especial" value="Mousse de Chocolate"> <span>Mousse de Chocolate</span>
+                    </label>
+                    <label class="radio-card sub-option">
+                        <input type="radio" name="sabor-especial" value="Brigadeiro Branco"> <span>Brigadeiro Branco</span>
+                    </label>
+                    <label class="radio-card sub-option">
+                        <input type="radio" name="sabor-especial" value="Brigadeiro Gourmet"> <span>Brigadeiro Gourmet</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-brush'></i> Detalhes da Decoração</h2>
+            <textarea id="observacoes" placeholder="Cores, referências, frases no bolo..."></textarea>
+        </section>
+
+        <section class="card">
+            <h2><i class='bx bxs-balloon'></i> Topo de Bolo (Topper)</h2>
+            <div class="options">
+                <button id="topper-sim" class="topper-btn">Sim (+R$17)</button>
+                <button id="topper-nao" class="topper-btn active">Não</button>
+            </div>
+            <div id="topper-input-container" style="display: none; margin-top: 10px;">
+                <textarea id="topper-tema" placeholder="Qual o tema do topper? (Ex: Disney, Flores, Idade...)"></textarea>
+            </div>
+        </section>
+
+        <div id="resumo-pedido" class="resumo-card" style="display: none;">
+            <h3><i class='bx bx-receipt'></i> Resumo do Pedido</h3>
+            <div id="resumo-conteudo"></div>
+        </div>
+
+        <button class="finalizar">
+            <i class='bx bxl-whatsapp'></i> Enviar para Mary no WhatsApp
+        </button>
+
+        <footer class="main-footer">
+            <div class="footer-contact">
+                <i class='bx bxl-whatsapp'></i>
+                <span>+55 (18)99635-9278</span>
+            </div>
+        </footer>
+    </div>
+
+    <div id="modal-confirmacao" class="modal-overlay">
+        <div class="modal-content">
+            <i class='bx bxs-check-circle'></i>
+            <h2>Quase lá!</h2>
+            <p>Estamos gerando sua mensagem...</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
